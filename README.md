@@ -1,5 +1,7 @@
 # Calibex
 
+Please read the doc at : [https://hexdocs.pm/calibex](https://hexdocs.pm/calibex)
+
 **Handle exhaustively ICal format**: bijective coding/decoding for ICal
 transformation, ICal email request and responses.
 
