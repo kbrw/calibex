@@ -1,0 +1,81 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+DTSTART:20170514T070000Z
+DTEND:20170514T080000Z
+DTSTAMP:20170513T105250Z
+ORGANIZER;CN=Arnaud Wetzel:mailto:arnaud.wetzel@example.com
+UID:r30al68kn0b2epd9af6kqjg8rg@google.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=arnaudwetzel@examp.org;X-NUM-GUESTS=0:mailto:arnaudwetzel@examp.org
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE
+ ;CN=Arnaud Wetzel;X-NUM-GUESTS=0:mailto:arnaud.wetzel@example.com
+CREATED:20170513T105032Z
+DESCRIPTION:Cet événement est associé à un appel vidéo Google Hangouts.\nPa
+ rticiper : https://plus.google.com/hangouts/_/exampleexampl.com/arnaud-wetz
+ el?hceid=YXJuYXVkLndldHplbEBrYnJ3YWR2ZW50dXJlLmNvbQ.r30al68kn0b2epd9af6kqjg
+ 8rg&hs=121\n\nAffichez votre événement sur la page https://www.google.com/c
+ alendar/event?action=VIEW&eid=cjMwYWw2OGtuMGIyZXBkOWFmNmtxamc4cmcgYXJuYXVkd
+ 2V0emVsQHlhaG9vLmNvbQ&tok=MzEjYXJuYXVkLndldHplbEBrYnJ3YWR2ZW50dXJlLmNvbTdjM
+ zQ0ZGFjN2FlYTM2OGI2NzEzNjAzZjVmNzk2NDVkMjA5ZDc0YjQ&ctz=Europe/Paris&hl=fr.
+LAST-MODIFIED:20170513T105249Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:c'est un évènement de test
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20170514T070000Z
+DTEND:20170514T080000Z
+DTSTAMP:20170513T105250Z
+ORGANIZER;CN=Arnaud Wetzel:mailto:arnaud.wetzel@example.com
+UID:r30al68kn0b2epd9af6kqjg8rg@google.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=arnaudwetzel@examp.org;X-NUM-GUESTS=0:mailto:arnaudwetzel@examp.org
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE
+ ;CN=Arnaud Wetzel;X-NUM-GUESTS=0:mailto:arnaud.wetzel@example.com
+CREATED:20170513T105032Z
+DESCRIPTION:Cet événement est associé à un appel vidéo Google Hangouts.\nPa
+ rticiper : https://plus.google.com/hangouts/_/exampleexampl.com/arnaud-wetz
+ el?hceid=YXJuYXVkLndldHplbEBrYnJ3YWR2ZW50dXJlLmNvbQ.r30al68kn0b2epd9af6kqjg
+ 8rg&hs=121\n\nAffichez votre événement sur la page https://www.google.com/c
+ alendar/event?action=VIEW&eid=cjMwYWw2OGtuMGIyZXBkOWFmNmtxamc4cmcgYXJuYXVkd
+ 2V0emVsQHlhaG9vLmNvbQ&tok=MzEjYXJuYXVkLndldHplbEBrYnJ3YWR2ZW50dXJlLmNvbTdjM
+ zQ0ZGFjN2FlYTM2OGI2NzEzNjAzZjVmNzk2NDVkMjA5ZDc0YjQ&ctz=Europe/Paris&hl=fr.
+LAST-MODIFIED:20170513T105249Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:c'est un évènement de test
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20170514T070000Z
+DTEND:20170514T080000Z
+DTSTAMP:20170513T105250Z
+ORGANIZER;CN=Arnaud Wetzel:mailto:arnaud.wetzel@example.com
+UID:r30al68kn0b2epd9af6kqjg8rg@google.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=arnaudwetzel@examp.org;X-NUM-GUESTS=0:mailto:arnaudwetzel@examp.org
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE
+ ;CN=Arnaud Wetzel;X-NUM-GUESTS=0:mailto:arnaud.wetzel@example.com
+CREATED:20170513T105032Z
+DESCRIPTION:Cet événement est associé à un appel vidéo Google Hangouts.\nPa
+ rticiper : https://plus.google.com/hangouts/_/exampleexampl.com/arnaud-wetz
+ el?hceid=YXJuYXVkLndldHplbEBrYnJ3YWR2ZW50dXJlLmNvbQ.r30al68kn0b2epd9af6kqjg
+ 8rg&hs=121\n\nAffichez votre événement sur la page https://www.google.com/c
+ alendar/event?action=VIEW&eid=cjMwYWw2OGtuMGIyZXBkOWFmNmtxamc4cmcgYXJuYXVkd
+ 2V0emVsQHlhaG9vLmNvbQ&tok=MzEjYXJuYXVkLndldHplbEBrYnJ3YWR2ZW50dXJlLmNvbTdjM
+ zQ0ZGFjN2FlYTM2OGI2NzEzNjAzZjVmNzk2NDVkMjA5ZDc0YjQ&ctz=Europe/Paris&hl=fr.
+LAST-MODIFIED:20170513T105249Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:c'est un évènement de test
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
