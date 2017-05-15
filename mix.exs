@@ -17,7 +17,8 @@ defmodule Calibex.Mixfile do
   end
 
   defp deps do
-    [{:timex, "~> 3.1"}]
+    [{:timex, "~> 3.1"},
+     {:ex_doc, ">= 0.0.0", only: :dev}]
   end
 
   defp package do
