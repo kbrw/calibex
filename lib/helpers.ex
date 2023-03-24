@@ -42,10 +42,10 @@ defmodule Calibex.Helper do
   def augment(_,val,_vals), do: val
 
   def default(:uid,vals), do: :crypto.hash(:sha,:erlang.term_to_binary(vals)) |> Base.encode16(case: :lower)
-  def default(:last_modified,_vals), do: Timex.now
+  def default(:last_modified,_vals), do: DateTime.now!("Etc/UTC")
   def default(:sequence,_vals), do: 0
-  def default(:dtstamp,_vals), do: Timex.now
-  def default(:created,_vals), do: Timex.now
+  def default(:dtstamp,_vals), do: DateTime.now!("Etc/UTC")
+  def default(:created,_vals), do: DateTime.now!("Etc/UTC")
   def default(:status,_vals), do: :confirmed
   def default(:cutype,_vals), do: "INDIVIDUAL"
   def default(:role,_vals), do: "REQ-PARTICIPANT"

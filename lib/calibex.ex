@@ -38,7 +38,7 @@ defmodule Calibex do
   ## Example usage : email event request generation 
 
   ```
-  Calibex.request(dtstart: Timex.now, dtend: Timex.shift(Timex.now,hours: 1), summary: "Mon évènement",
+  Calibex.request(dtstart: DateTime.utc_now(), dtend: DateTime.add(DateTime.utc_now(), 3_600, :second), summary: "Mon évènement",
             organizer: "arnaud.wetzel@example.com", attendee: "jeanpierre@yahoo.fr", attendee: "jean@ya.fr")
    |> Calibex.encode
   ```

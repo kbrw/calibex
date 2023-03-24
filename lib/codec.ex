@@ -13,9 +13,17 @@ defmodule Calibex.Codec do
       "#{encode_key pk}=#{encode_value pv}"
     end) |> Enum.join(";")}:#{encode_value v[:value]}"
   end
-  def encode_value({k,v}), do: "#{encode_key k}:#{encode_value v}" # encode standard key value
-  def encode_value(%DateTime{}=dt), do: %{dt|microsecond: {0,0}} |> Timex.to_datetime("UTC") |> Timex.format!("{ISO:Basic:Z}")
-  def encode_value(atom) when is_atom(atom), do: atom |> to_string() |> String.upcase
+
+  # encode standard key value
+  def encode_value({k, v}), do: "#{encode_key(k)}:#{encode_value(v)}"
+
+  def encode_value(%DateTime{} = dt) do
+    dt
+    |> DateTime.shift_zone!("Etc/UTC")
+    |> Calendar.strftime("%Y%m%dT%H%M%SZ")
+  end
+
+  def encode_value(atom) when is_atom(atom), do: atom |> to_string() |> String.upcase()
   def encode_value(other), do: other
 
   def encode_key(k) do
@@ -33,10 +41,10 @@ defmodule Calibex.Codec do
   def decode(bin), do: bin |> decode_lines |> decode_blocks
 
   def decode_lines(bin) do # split by unfolded line
-    bin |> String.splitter(["\r\n","\n"]) |> Enum.flat_map_reduce(nil,fn 
+    bin |> String.splitter(["\r\n","\n"]) |> Enum.flat_map_reduce(nil,fn
       " "<>rest,acc-> {[],acc<>rest}
       line,prevline-> {prevline && [String.replace(prevline,"\\n","\n")] || [],line}
-    end) |> elem(0) 
+    end) |> elem(0)
   end
   def decode_blocks([]), do: []
   def decode_blocks(["BEGIN:"<>binkey|rest]) do # decode each block as a list
@@ -53,14 +61,14 @@ defmodule Calibex.Codec do
     [keyprops,val] = String.split(prop,":",parts: 2)
     case String.split(keyprops,";") do
       [key]-> {decode_key(key),val}
-      [key|props]-> 
+      [key|props]->
         props = props |> Enum.map(fn prop->
           [k,v] = String.split(prop,"=")
           {decode_key(k),v}
         end)
-        {decode_key(key),[{:value,val}|props]} 
+        {decode_key(key),[{:value,val}|props]}
     end
   end
-  def decode_key(bin), do: 
+  def decode_key(bin), do:
     bin |> String.replace("-","_") |> String.downcase |> String.to_atom
 end
