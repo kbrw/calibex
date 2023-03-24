@@ -12,6 +12,9 @@ defmodule Calibex.Mixfile do
      deps: deps()]
   end
 
+  def application do
+    [extra_applications: [:crypto]]
+  end
   defp deps do
     [
       {:ex_doc, ">= 0.0.0", only: :dev},
