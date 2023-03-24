@@ -12,10 +12,6 @@ defmodule Calibex.Mixfile do
      deps: deps()]
   end
 
-  def application do
-    [applications: [:timex]]
-  end
-
   defp deps do
     [{:timex, "~> 3.1"},
      {:ex_doc, ">= 0.0.0", only: :dev}]
