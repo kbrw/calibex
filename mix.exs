@@ -5,8 +5,8 @@ defmodule Calibex.Mixfile do
     [app: :calibex,
      version: "0.1.0",
      elixir: "~> 1.3",
-     package: package,
-     description: description,
+     package: package(),
+     description: description(),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
