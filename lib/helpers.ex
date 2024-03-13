@@ -32,8 +32,13 @@ defmodule Calibex.Helper do
       end)
 
     case fill_by_parent[parent] do
-      nil -> props
-      tofill -> Enum.filter_map(tofill, &(!props[&1]), &{&1, default(&1, props)}) ++ props
+      nil ->
+        props
+
+      tofill ->
+        Enum.filter(tofill, &(!props[&1]))
+        |> Enum.map(&{&1, default(&1, props)})
+        |> Kernel.++(props)
     end
   end
 
