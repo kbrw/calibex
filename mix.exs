@@ -21,7 +21,7 @@ defmodule Calibex.Mixfile do
 
   defp deps do
     [
-      {:timex, "~> 3.1"},
+      {:timex, "~> 3.7"},
       {:credo, "~> 1.7", only: :dev},
       {:dialyxir, "~> 1.4", only: :dev},
       {:ex_doc, ">= 0.0.0", only: :dev}
