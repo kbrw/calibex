@@ -5,18 +5,20 @@ defmodule Calibex.Codec do
   # encode multiple kwlist with begin/end
   def encode_value({k, [[{_k, _v} | _] | _] = vals}) do
     vals
-    |> Enum.map(&"BEGIN:#{encode_key(k)}\r\n#{encode_value(&1)}\r\nEND:#{encode_key(k)}")
-    |> Enum.join("\r\n")
+    |> Enum.map_join(
+      "\r\n",
+      &"BEGIN:#{encode_key(k)}\r\n#{encode_value(&1)}\r\nEND:#{encode_key(k)}"
+    )
   end
 
   # encode kwlist with limited length lines
   def encode_value([{_k, _v} | _] = props) do
-    props |> Enum.map(&(&1 |> encode_value() |> encode_line())) |> Enum.join("\r\n")
+    props |> Enum.map_join("\r\n", &(&1 |> encode_value() |> encode_line()))
   end
 
   # encode value with properties
   def encode_value({k, [{_k, _v} | _] = v}) do
-    "#{encode_key(k)};#{v |> Keyword.delete(:value) |> Enum.map(fn {pk, pv} -> "#{encode_key(pk)}=#{encode_value(pv)}" end) |> Enum.join(";")}:#{encode_value(v[:value])}"
+    "#{encode_key(k)};#{v |> Keyword.delete(:value) |> Enum.map_join(";", fn {pk, pv} -> "#{encode_key(pk)}=#{encode_value(pv)}" end)}:#{encode_value(v[:value])}"
   end
 
   # encode standard key value
