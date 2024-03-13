@@ -1,7 +1,7 @@
 defmodule Calibex do
   @moduledoc """
   Calibex allows you to handle ICal file format.
-  
+
   In the same way as the `mailibex` library, Calibex allows bijective coding/decoding : 
   making it possible to modify an ical and to keep all fields and struct of the initial ical.
 
@@ -72,7 +72,7 @@ defmodule Calibex do
 
   see `all_fill_attrs/0` doc to find allowed completion rules.
   """
-  defdelegate new(event,fill_attrs), to: Calibex.Helper
+  defdelegate new(event, fill_attrs), to: Calibex.Helper
 
   @doc "see `new/2`, default fill_attrs are 
       `[:prodid, :version, :calscale, :organizer, :attendee, :cutype, :role, :partstat, :rsvp, :x_num_guests]`"
@@ -82,7 +82,7 @@ defmodule Calibex do
   same as `new/2`, but with a `REQUEST` method in order to allow email request
   ICS generation.
   """
-  defdelegate request(event,fill_attrs), to: Calibex.Helper
+  defdelegate request(event, fill_attrs), to: Calibex.Helper
 
   @doc """
   same as `new/1`, but with a `REQUEST` method in order to allow email request
@@ -97,12 +97,12 @@ defmodule Calibex do
 
   see `all_fill_attrs/0` doc to find allowed completion rules.
   """
-  defdelegate new_root(cal,fill_attrs), to: Calibex.Helper
+  defdelegate new_root(cal, fill_attrs), to: Calibex.Helper
   defdelegate new_root(cal), to: Calibex.Helper
 
   @doc """
   return all available transformation rules. There are 2 types :
-  
+
   - the ones which set a default value if not defined otherwise (DEFAULT)
   - the ones which transform a given value if defined (TRANSFORM)
 
