@@ -1,4 +1,4 @@
-# Calibex
+# Calibex [![Build Status](https://github.com/kbrw/calibex/actions/workflows/.github/workflows/build-and-test.yml/badge.svg)](https://github.com/kbrw/calibex/actions/workflows/build-and-test.yml) [![Hex.pm](https://img.shields.io/hexpm/v/calibex.svg)](https://hex.pm/packages/calibex) [![Documentation](https://img.shields.io/badge/documentation-gray)](https://hexdocs.pm/calibex) ![Hex.pm License](https://img.shields.io/hexpm/l/calibex)
 
 Please read the doc at : [https://hexdocs.pm/calibex](https://hexdocs.pm/calibex)
 
