@@ -7,13 +7,13 @@ defmodule Calibex.Helper do
   @request_fill  @new_fill ++ [:uid,:last_modified,:sequence,:dtstamp,:created,:status]
   def new(event, fill_attrs \\ @new_fill), do:
     fill_rec([vcalendar: [[vevent: [event]]]],fill_attrs)
-  def request(event, fill_attrs \\ @request_fill), do: 
+  def request(event, fill_attrs \\ @request_fill), do:
     fill_rec([vcalendar: [[method: "REQUEST", vevent: [event]]]],fill_attrs)
   def new_root(cal, fill_attrs \\ @new_fill), do:
     fill_rec([vcalendar: [cal]],fill_attrs)
 
   def all_fill_attrs, do: @request_fill
-   
+
   ## fill_rec recursively augment fields and add default fields if key matches `augment/3`, `default/2`
   def fill_rec(el,fill_attrs), do: fill_rec(el,Enum.group_by(fill_attrs,&parent/1),nil)
   def fill_rec([{_,_}|_]=props,fill_by_parent,parent) do
@@ -24,8 +24,14 @@ defmodule Calibex.Helper do
       {k,fill_rec(v,fill_by_parent,k)}
     end)
     case fill_by_parent[parent] do
-      nil->props
-      tofill->Enum.filter_map(tofill,&(!props[&1]),&{&1,default(&1,props)}) ++ props
+      nil ->
+        props
+
+      tofill ->
+        tofill
+        |> Enum.filter(&(!props[&1]))
+        |> Enum.map(&{&1, default(&1, props)})
+        |> Enum.concat(props)
     end
   end
   def fill_rec(l,fill_by_parent,parent) when is_list(l), do: Enum.map(l,&fill_rec(&1,fill_by_parent,parent))
