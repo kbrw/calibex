@@ -18,7 +18,7 @@ defmodule Calibex.Mixfile do
   defp deps do
     [
       {:ex_doc, ">= 0.0.0", only: :dev},
-      {:tz, "~> 0.25.1", only: :test}
+      {:tz, "~> 0.26.5", only: :test}
     ]
   end
 
