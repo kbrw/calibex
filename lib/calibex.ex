@@ -2,22 +2,41 @@ defmodule Calibex do
   @moduledoc """
   Calibex allows you to handle ICal file format.
   
-  In the same way as the `mailibex` library, Calibex allows bijective coding/decoding : 
-  making it possible to modify an ical and to keep all fields and struct of the initial ical.
+  In the same way as the [`mailibex`](https://github.com/kbrw/mailibex) library, Calibex
+  allows bijective coding/decoding : making it possible to modify an ical and to keep all
+  fields and struct of the initial ical.
 
-  The ICal elixir term is exactly a representation of the ICal file format : for instance : 
+  The ICal elixir term is exactly a representation of the ICal file format.
 
-      [vcalendar: [[
+  for instance : 
+
+  ```
+  [
+    vcalendar: [
+      [
         prodid: "-//Google Inc//Google Calendar 70.9054//EN",
         version: "2.0",
-        calscale: "GREGORIAN", 
-        vevent: [[
-          dtstart: %DateTime{},
-          dtend: %DateTime{},
-          organizer: [cn: "My Name",value: "mailto:me@example.com"],
-          attendee: [cutype: "INDIVIDUAL",role: "REQ-PARTICIPANT",partstat: "NEEDS-ACTION",rsvp: true, cn: "Moi",
-                      "x-num-guests": 0, value: "mailto:me@example.com"],
-        ]]]]]
+        calscale: "GREGORIAN",
+        vevent: [
+          [
+            dtstart: %DateTime{},
+            dtend: %DateTime{},
+            organizer: [cn: "My Name", value: "mailto:me@example.com"],
+            attendee: [
+              cutype: "INDIVIDUAL",
+              role: "REQ-PARTICIPANT",
+              partstat: "NEEDS-ACTION",
+              rsvp: true,
+              cn: "Moi",
+              "x-num-guests": 0,
+              value: "mailto:me@example.com"
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+  ```
 
   `encode/1` and `decode/1` parse and format an ICal from this terms : see
   functions doc to find encoding rules.
@@ -38,9 +57,17 @@ defmodule Calibex do
   ## Example usage : email event request generation 
 
   ```
-  Calibex.request(dtstart: Timex.now, dtend: Timex.shift(Timex.now,hours: 1), summary: "Mon évènement",
-            organizer: "arnaud.wetzel@example.com", attendee: "jeanpierre@yahoo.fr", attendee: "jean@ya.fr")
-   |> Calibex.encode
+  now = DateTime.utc_now()
+
+  Calibex.request(
+    dtstart: now,
+    dtend: DateTime.add(now, 3_600, :second),
+    summary: "Mon évènement",
+    organizer: "arnaud.wetzel@example.com",
+    attendee: "jeanpierre@yahoo.fr",
+    attendee: "jean@ya.fr"
+  )
+  |> Calibex.encode()
   ```
   """
 
@@ -74,8 +101,10 @@ defmodule Calibex do
   """
   defdelegate new(event,fill_attrs), to: Calibex.Helper
 
-  @doc "see `new/2`, default fill_attrs are 
-      `[:prodid, :version, :calscale, :organizer, :attendee, :cutype, :role, :partstat, :rsvp, :x_num_guests]`"
+  @doc """
+  see `new/2`, default fill_attrs are 
+  `[:prodid, :version, :calscale, :organizer, :attendee, :cutype, :role, :partstat, :rsvp, :x_num_guests]`
+  """
   defdelegate new(event), to: Calibex.Helper
 
   @doc """
@@ -116,7 +145,6 @@ defmodule Calibex do
      standard rsvp enabled attendee, waiting for event acceptance
   - `:organizer` TRANSFORM an email string into a `[cn: email,value: "mailto:"<>email]` props value.
   - `:attendee` TRANSFORM an email string into a `[cn: email,value: "mailto:"<>email]` props value.
-
   """
   defdelegate all_fill_attrs(), to: Calibex.Helper
 end

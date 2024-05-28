@@ -59,9 +59,11 @@ some helpers functions are provided :
 ## Example usage : email event request generation
 
 ```elixir
+now = DateTime.utc_now()
+
 Calibex.request(
-  dtstart: Timex.now(),
-  dtend: Timex.shift(Timex.now(), hours: 1),
+  dtstart: now,
+  dtend: DateTime.add(now, 3_600, :second),
   summary: "Mon évènement",
   organizer: "arnaud.wetzel@example.com",
   attendee: "jeanpierre@yahoo.fr",

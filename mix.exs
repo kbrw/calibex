@@ -13,12 +13,13 @@ defmodule Calibex.Mixfile do
   end
 
   def application do
-    [applications: [:timex]]
+    [extra_applications: [:crypto]]
   end
-
   defp deps do
-    [{:timex, "~> 3.1"},
-     {:ex_doc, ">= 0.0.0", only: :dev}]
+    [
+      {:ex_doc, ">= 0.0.0", only: :dev},
+      {:tz, "~> 0.26.5", only: :test}
+    ]
   end
 
   defp package do
